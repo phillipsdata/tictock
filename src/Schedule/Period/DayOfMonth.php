@@ -1,6 +1,8 @@
 <?php
 namespace tictock\Schedule\Period;
 
+use tictock\Schedule\Period\AbstractPeriod;
+
 /**
  * Day of a month Period
  */
@@ -20,5 +22,13 @@ class DayOfMonth extends AbstractPeriod
     protected function isValidInterval($val)
     {
         return ($val > 1 && $val < 31);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeriod()
+    {
+        return AbstractPeriod::DAYOFMONTH;
     }
 }

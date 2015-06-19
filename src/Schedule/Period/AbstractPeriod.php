@@ -8,6 +8,11 @@ abstract class AbstractPeriod implements PeriodInterface
 {
     protected $val;
     protected $type;
+    const MINUTE = 'minute';
+    const HOUR = 'hour';
+    const DAYOFMONTH = 'dayofmonth';
+    const MONTH = 'month';
+    const DAYOFWEEK = 'dayofweek';
 
     /**
      * {@inheritdoc}
@@ -18,6 +23,7 @@ abstract class AbstractPeriod implements PeriodInterface
             || ($type === "interval" && $this->isValidInterval($val))) {
             $this->val = $val;
         }
+        $this->type = $type;
     }
 
     /**

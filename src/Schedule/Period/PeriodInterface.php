@@ -24,4 +24,16 @@ interface PeriodInterface
      * return int $val The value type (value or interval)
      */
     public function getType();
+
+    /**
+     * The period
+     *
+     * return string one of:
+     * - minute
+     * - hour
+     * - dayofmonth
+     * - month
+     * - dayofweek
+     */
+    public function getPeriod();
 }

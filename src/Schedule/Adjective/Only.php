@@ -18,7 +18,9 @@ class Only
     public function minutes(array $minutes)
     {
         foreach ($minutes as $min) {
-            $this->schedule->set(new Minute($min));
+            $this->schedule->set(
+                $this->periodFactory->createMinute($min)
+            );
         }
         return $this->schedule;
     }
@@ -26,7 +28,9 @@ class Only
     public function hours(array $hours)
     {
         foreach ($hours as $hr) {
-            $this->schedule->set(new Hour($hr));
+            $this->schedule->set(
+                $this->periodFactory->createHour($hr)
+            );
         }
         return $this->schedule;
     }
@@ -34,7 +38,9 @@ class Only
     public function daysOfTheMonth(array $days)
     {
         foreach ($days as $day) {
-            $this->schedule->set(new DayOfMonth($day));
+            $this->schedule->set(
+                $this->periodFactory->createDayOfMonth($day)
+            );
         }
         return $this->schedule;
     }
@@ -42,7 +48,9 @@ class Only
     public function months(array $months)
     {
         foreach ($months as $month) {
-            $this->schedule->set(new Month($month));
+            $this->schedule->set(
+                $this->periodFactory->createMonth($month)
+            );
         }
         return $this->schedule;
     }
@@ -50,7 +58,9 @@ class Only
     public function daysOfTheWeek(array $days)
     {
         foreach ($days as $day) {
-            $this->schedule->set(new DayOfWeek($day));
+            $this->schedule->set(
+                $this->periodFactory->createDayOfWeek($day)
+            );
         }
         return $this->schedule;
     }

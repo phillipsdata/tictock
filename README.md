@@ -57,7 +57,7 @@ Suppose we wanted to run something every 5 minutes?
 
 ```php
 $schedule = $tictock->schedule()
-    ->only
+    ->only()
     ->minutes(array(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55));
 $tictock->save();
 ```
@@ -70,4 +70,3 @@ $schedule = $tictock->schedule()
     ->minutes(5);
 $tictock->save($schedule);
 ```
-
