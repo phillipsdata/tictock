@@ -28,4 +28,11 @@ interface ScheduleInterface
      * return array An array of \tictock\Schedule\Period\PeriodInterface
      */
     public function getPeriods();
+
+    /**
+     * Fetch periods
+     *
+     * return string The shorthand for schedule: min hour day-of-month month day-of-week
+     */
+    public function getShorthand();
 }

@@ -1,4 +1,4 @@
-# tictock
+# TicTock
 
 
 An OS independent task scheduler.
@@ -57,17 +57,65 @@ Suppose we wanted to run something every 5 minutes?
 
 ```php
 $schedule = $tictock->schedule()
-    ->only
-    ->minutes(array(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55));
-$tictock->save();
-```
-
-An easier way to write this would be:
-
-```php
-$schedule = $tictock->schedule()
     ->every()
     ->minutes(5);
 $tictock->save($schedule);
 ```
+This could also be written as:
 
+```php
+$schedule = $tictock->schedule()
+    ->only()
+    ->minutes(array(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55));
+$tictock->save($schedule);
+```
+**Note:** Defining select hours or minutes to run is not supported by Windows. The smallest non-interval value supported by Windows is ```daysofTheMonth()```.
+
+## Advanced Usage
+
+### Output
+
+The result of request is returned by ```TicTock::save()```. If you need the actual output returned, you need explicitly declare the scheduler. This can be done using the built-in ```ScheduleFactory``` or by explicitly initializing the Scheduler you want.
+
+```php
+use tictock\TicTock;
+
+$cmd = 'the command you want to run';
+$tictock = new TicTock($cmd);
+
+$scheduler = $tictock->scheduler();
+$schedule = $tictock->schedule()
+$result = $tictock->save($schedule, $scheduler);
+
+print_r($scheduler->output());
+```
+
+### Extending TicTock
+
+TicTock is totally modular. Use your own Schedule or Scheduler to do crazy stuff, like create a recurring todo on some remote web service or program your sprinkler system.
+
+```php
+class MySchedule implements \tictock\Schedule\ScheduleInterface
+{
+    // ...
+}
+```
+
+```php
+class MyScheduler implements \tictock\Scheduler\SchedulerInterface
+{
+    // ...
+}
+```
+
+```php
+use tictock\TicTock;
+
+$data = 'your data';
+$tictock = new TicTock($data);
+
+$schedule = new MySchedule();
+$scheduler = new MyScheduler();
+
+$tictock->save($schedule, $scheduler);
+```

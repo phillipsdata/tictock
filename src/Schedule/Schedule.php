@@ -58,4 +58,40 @@ class Schedule implements ScheduleInterface
     {
         return $this->periods;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShorthand()
+    {
+        $notation = array(
+            'minute' => array('*'),
+            'hour' => array('*'),
+            'dayofmonth' => array('*'),
+            'month' => array('*'),
+            'dayofweek' => array('*')
+        );
+        foreach ($this->periods as $period) {
+            $val = $period->get();
+            $type = $period->getType();
+            $periodType = $period->getPeriod();
+
+            if ('interval' === $period->getType()) {
+                $notation[$periodType] = array('*/' . $val);
+            } else {
+                if ('*' === $notation[$periodType][0]) {
+                    $notation[$periodType] = array();
+                }
+                $notation[$periodType][] = null === $val
+                    ? '*'
+                    : $val;
+            }
+        }
+
+        foreach ($notation as $key => &$value) {
+            $value = implode(',', $value);
+        }
+
+        return implode(' ', $notation);
+    }
 }

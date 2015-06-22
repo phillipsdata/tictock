@@ -1,6 +1,8 @@
 <?php
 namespace tictock\Schedule\Period;
 
+use tictock\Schedule\Period\AbstractPeriod;
+
 /**
  * Minute Period
  */
@@ -20,5 +22,13 @@ class Minute extends AbstractPeriod
     protected function isValidInterval($val)
     {
         return ($val > 1 && $val < 60);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeriod()
+    {
+        return AbstractPeriod::MINUTE;
     }
 }
