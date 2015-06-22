@@ -1,6 +1,8 @@
 <?php
 namespace tictock\Schedule\Period;
 
+use tictock\Schedule\Period\PeriodInterface;
+
 /**
  * Abstract Period
  */
@@ -17,7 +19,7 @@ abstract class AbstractPeriod implements PeriodInterface
     /**
      * {@inheritdoc}
      */
-    public function __construct($val, $type = "value")
+    public function __construct($val, $type = PeriodInterface::TYPE_VALUE)
     {
         if (($type === "value" && $this->isValid($val))
             || ($type === "interval" && $this->isValidInterval($val))) {

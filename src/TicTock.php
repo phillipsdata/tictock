@@ -54,12 +54,13 @@ class TicTock
      *
      * @param ScheduleInterface $schedule
      * @param SchedulerInterface $scheduler
+     * @return int The result of the scheduler saving the task
      */
     public function save(ScheduleInterface $schedule, SchedulerInterface $scheduler = null)
     {
         if (null === $scheduler) {
             $scheduler = $this->scheduler();
         }
-        $scheduler->save($schedule, $this->cmd);
+        return $scheduler->save($schedule, $this->cmd);
     }
 }

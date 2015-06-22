@@ -1,15 +1,17 @@
 <?php
 namespace tictock\Schedule\Period;
 
+use tictock\Schedule\Period\PeriodInterface;
+
 interface PeriodFactoryInterface
 {
-    public function createMinute($val = null, $type = "value");
+    public function createMinute($val = null, $type = PeriodInterface::TYPE_VALUE);
 
-    public function createHour($val = null, $type = "value");
+    public function createHour($val = null, $type = PeriodInterface::TYPE_VALUE);
 
-    public function createDayOfMonth($val = null, $type = "value");
+    public function createDayOfMonth($val = null, $type = PeriodInterface::TYPE_VALUE);
 
-    public function createMonth($val = null, $type = "value");
+    public function createMonth($val = null, $type = PeriodInterface::TYPE_VALUE);
 
-    public function createDayOfWeek($val = null, $type = "value");
+    public function createDayOfWeek($val = null, $type = PeriodInterface::TYPE_VALUE);
 }
