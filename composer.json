@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {"tictock\\": "src"}
     },
+    "autoload-dev": {
+        "psr-4": {"tictock\\tests\\": "tests"}
+    },
     "require": {
         "php": ">=5.3"
     },
