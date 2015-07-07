@@ -39,8 +39,7 @@ class Windows implements SchedulerInterface
 
         $output = array();
         $return = 0;
-        echo $task;
-        die;
+
         exec($task, $output, $return);
         $this->output = $output;
         return $return;

@@ -1,5 +1,6 @@
 <?php
 namespace tictock\Tests\Scheduler\Platform {
+
     use tictock\Scheduler\Platform\Nix;
     use tictock\Scheduler\SchedulerInterface;
     use tictock\Schedule\ScheduleInterface;
@@ -55,10 +56,9 @@ namespace tictock\Tests\Scheduler\Platform {
 }
 
 namespace tictock\Scheduler\Platform {
-    use tictock\Tests\Scheduler\Platform\NixTest;
     
     function exec($cmd, array &$out, &$return)
     {
-        NixTest::mockExec($cmd, $out, $return);
+        \tictock\Tests\Scheduler\Platform\NixTest::mockExec($cmd, $out, $return);
     }
 }
