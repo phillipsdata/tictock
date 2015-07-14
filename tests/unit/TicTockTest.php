@@ -9,11 +9,10 @@ use PHPUnit_Framework_TestCase;
  */
 class TicTockTest extends PHPUnit_Framework_TestCase
 {
-    private $tictock;
     
-    public function setUp()
+    private function getTicTock()
     {
-        $this->tictock = new TicTock('echo hello world');
+        return new TicTock('echo hello world');
     }
     
     /**
@@ -21,7 +20,7 @@ class TicTockTest extends PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $this->assertInstanceOf('\tictock\TicTock', $this->tictock);
+        $this->assertInstanceOf('\tictock\TicTock', $this->getTicTock());
     }
 
     /**
@@ -33,7 +32,7 @@ class TicTockTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(
             '\tictock\Schedule\ScheduleInterface',
-            $this->tictock->schedule()
+            $this->getTicTock()->schedule()
         );
     }
     
@@ -48,15 +47,15 @@ class TicTockTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(
             '\tictock\Scheduler\Platform\Windows',
-            $this->tictock->scheduler('windows')
+            $this->getTicTock()->scheduler('windows')
         );
         $this->assertInstanceOf(
             '\tictock\Scheduler\Platform\Nix',
-            $this->tictock->scheduler('nix')
+            $this->getTicTock()->scheduler('nix')
         );
         $this->assertInstanceOf(
             '\tictock\Scheduler\SchedulerInterface',
-            $this->tictock->scheduler()
+            $this->getTicTock()->scheduler()
         );
     }
     
@@ -75,6 +74,30 @@ class TicTockTest extends PHPUnit_Framework_TestCase
                 $this->anything()
             );
         
-        $this->tictock->save($schedule, $scheduler);
+        $this->getTicTock()->save($schedule, $scheduler);
+    }
+    
+    /**
+     * @covers ::save
+     */
+    public function testSaveWithoutScheduler()
+    {
+        $schedule = $this->getMock('\tictock\Schedule\ScheduleInterface');
+        $scheduler = $this->getMock('\tictock\Scheduler\SchedulerInterface');
+        $scheduler->expects($this->once())
+            ->method('save')
+            ->with(
+                $this->equalTo($schedule),
+                $this->anything()
+            );
+        
+        $tictock = $this->getMockBuilder('\tictock\TicTock')
+            ->disableOriginalConstructor()
+            ->setMethods(array('scheduler'))
+            ->getMock();
+        $tictock->method('scheduler')
+            ->will($this->returnValue($scheduler));
+        
+        $tictock->save($schedule);
     }
 }

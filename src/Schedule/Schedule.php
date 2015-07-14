@@ -76,7 +76,7 @@ class Schedule implements ScheduleInterface
             $type = $period->getType();
             $periodType = $period->getPeriod();
 
-            if ('interval' === $period->getType()) {
+            if ('interval' === $type) {
                 $notation[$periodType] = array('*/' . $val);
             } else {
                 if ('*' === $notation[$periodType][0]) {
