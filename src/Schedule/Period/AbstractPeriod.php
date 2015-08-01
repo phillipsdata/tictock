@@ -2,6 +2,7 @@
 namespace tictock\Schedule\Period;
 
 use tictock\Schedule\Period\PeriodInterface;
+use InvalidArgumentException;
 
 /**
  * Abstract Period
@@ -21,11 +22,13 @@ abstract class AbstractPeriod implements PeriodInterface
      */
     public function __construct($val, $type = PeriodInterface::TYPE_VALUE)
     {
+        $this->type = $type;
         if (($type === "value" && $this->isValid($val))
             || ($type === "interval" && $this->isValidInterval($val))) {
             $this->val = $val;
+        } else {
+            throw new InvalidArgumentException(sprintf('Invalid "%s" given for type "%s".', $val, $type));
         }
-        $this->type = $type;
     }
 
     /**
