@@ -34,14 +34,14 @@ $schedule = $tictock->schedule()
 $tictock->save($schedule);
 ```
 
-The above would schedule your command to execute every minute of every hour of every day. We could actually simplify this as:
+The above would schedule your command to execute every minute of every hour of every day. This is the default schedule. We could actually simplify this as:
 
 ```php
 $schedule = $tictock->schedule();
 $tictock->save($schedule);
 ```
 
-What if we only want to execute every Friday at 1 AM?
+What if we only want to execute on Fridays at 1 AM?
 
 ```php
 $schedule = $tictock->schedule()
@@ -72,11 +72,55 @@ $tictock->save($schedule);
 ```
 **Note:** Defining select hours or minutes to run is not supported by Windows. The smallest non-interval value supported by Windows is ```daysofTheMonth()```.
 
+### Explanation of Periods
+
+The `every()` method supports the following:
+
+- `minute()` Every minute
+- `minutes(int $n)` Every `$n`th minute (2 - 59)
+- `hour()` Every hour
+- `hours(int $n)` Every `$n`th hour (2 - 23)
+- `dayOfTheMonth()` Every day of the month
+- `daysOfTheMonth(int $n)` Every `$n`th day of the month (2 - 30)
+- `month()` Every month
+- `months(int $n)` Every `$n`th month (2 - 11)
+- `dayOfTheWeek()` Every day of the week
+- `daysOfTheWeek(int $n)` Every `$n`th day of the week
+
+The `only()` method supports the following:
+
+- `minutes(array $minutes)` Only these minutes (0 - 59)
+- `hours(array $hours)` Only these hours (0 - 23)
+    - `0` = 12 AM, ..., `23` = 11 PM
+- `daysOfTheMonth(array $days)` Only these days of the month (1 - 31)
+- `months(array $months)` Only these months (1 - 12)
+    - `1` = Janurary
+    - `2` = February
+    - `3` = March
+    - `4` = April
+    - `5` = May
+    - `6` = June
+    - `7` = July
+    - `8` = August
+    - `9` = September
+    - `10` = October
+    - `11` = November
+    - `12` = December
+- `daysOfTheWeek(array $days)` Only these days of the week (0 - 6)
+    - `0` = Sunday
+    - `1` = Monday
+    - `2` = Tuesday
+    - `3` = Wednesday
+    - `4` = Thursday
+    - `5` = Friday
+    - `6` = Saturday
+
 ## Advanced Usage
+
 
 ### Output
 
-The result of request is returned by ```Tictock::save()```. If you need the actual output returned, you need explicitly declare the scheduler. This can be done using the built-in ```ScheduleFactory``` or by explicitly initializing the Scheduler you want.
+The result of the request is returned by ```Tictock::save()```. If you need the actual output returned, you need explicitly declare the scheduler. This can be done using the built-in ```ScheduleFactory``` or by explicitly initializing the Scheduler you want.
 
 ```php
 use Tictock\Tictock;
