@@ -1,11 +1,11 @@
 <?php
-namespace tictock\Schedule;
+namespace Tictock\Schedule;
 
-use tictock\Schedule\Period\PeriodInterface;
-use tictock\Schedule\Period\PeriodFactoryInterface;
-use tictock\Schedule\Period\PeriodFactory;
-use tictock\Schedule\Adjective\Every;
-use tictock\Schedule\Adjective\Only;
+use Tictock\Schedule\Period\PeriodInterface;
+use Tictock\Schedule\Period\PeriodFactoryInterface;
+use Tictock\Schedule\Period\PeriodFactory;
+use Tictock\Schedule\Adjective\Every;
+use Tictock\Schedule\Adjective\Only;
 
 class Schedule implements ScheduleInterface
 {

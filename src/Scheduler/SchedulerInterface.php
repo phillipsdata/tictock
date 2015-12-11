@@ -1,7 +1,7 @@
 <?php
-namespace tictock\Scheduler;
+namespace Tictock\Scheduler;
 
-use tictock\Schedule\ScheduleInterface;
+use Tictock\Schedule\ScheduleInterface;
 
 interface SchedulerInterface
 {

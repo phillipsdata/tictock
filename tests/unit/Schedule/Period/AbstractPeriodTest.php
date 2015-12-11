@@ -1,13 +1,12 @@
 <?php
-namespace tictock\Tests\Unit\Schedule\Period;
+namespace Tictock\Tests\Unit\Schedule\Period;
 
-use tictock\Schedule\Period\AbstractPeriod;
-use tictock\Schedule\Period\PeriodInterface;
+use Tictock\Schedule\Period\PeriodInterface;
 use PHPUnit_Framework_TestCase;
 use ReflectionClass;
 
 /**
- * @coversDefaultClass \tictock\Schedule\Period\AbstractPeriod
+ * @coversDefaultClass \Tictock\Schedule\Period\AbstractPeriod
  */
 class AbstractPeriodTest extends PHPUnit_Framework_TestCase
 {
@@ -17,11 +16,11 @@ class AbstractPeriodTest extends PHPUnit_Framework_TestCase
      */
     public function testConstructException()
     {
-        $this->getMockBuilder('\tictock\Schedule\Period\AbstractPeriod')
+        $this->getMockBuilder('\Tictock\Schedule\Period\AbstractPeriod')
             ->setConstructorArgs(array(null, null))
             ->getMock();
     }
-    
+
     /**
      * @covers ::get
      * @covers ::__construct
@@ -43,7 +42,7 @@ class AbstractPeriodTest extends PHPUnit_Framework_TestCase
         $period = $this->getAbstractPeriod($val, $type);
         $this->assertEquals($type, $period->getType());
     }
-    
+
     /**
      * Data provider for testGetType and testGet
      */
@@ -54,10 +53,10 @@ class AbstractPeriodTest extends PHPUnit_Framework_TestCase
             array(3, PeriodInterface::TYPE_INTERVAL)
         );
     }
-    
+
     public function getAbstractPeriod($val, $type)
     {
-        $class = '\tictock\Schedule\Period\AbstractPeriod';
+        $class = '\Tictock\Schedule\Period\AbstractPeriod';
         $period = $this->getMockBuilder($class)
             ->disableOriginalConstructor()
             ->setMethods(array('isValid', 'isValidInterval'))
@@ -69,7 +68,7 @@ class AbstractPeriodTest extends PHPUnit_Framework_TestCase
         $period->expects($this->any())
             ->method('isValidInterval')
             ->will($this->returnValue(true));
-            
+
         $reflectedClass = new ReflectionClass($class);
         $constructor = $reflectedClass->getConstructor();
         $constructor->invoke($period, $val, $type);

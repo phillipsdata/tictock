@@ -1,7 +1,7 @@
 <?php
-namespace tictock\Schedule\Period;
+namespace Tictock\Schedule\Period;
 
-use tictock\Schedule\Period\PeriodInterface;
+use Tictock\Schedule\Period\PeriodInterface;
 use InvalidArgumentException;
 
 /**

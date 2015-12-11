@@ -1,5 +1,6 @@
-# TicTock
+# Tictock
 
+[![Build Status](https://travis-ci.org/phillipsdata/tictock.svg?branch=master)](https://travis-ci.org/phillipsdata/tictock)
 
 An OS independent task scheduler.
 
@@ -7,13 +8,13 @@ Provides a fluent interface for scheduling commands to run at various intervals.
 
 ## Basic Usage
 
-Initialize TicTock with your command:
+Initialize Tictock with your command:
 
 ```php
-use tictock\TicTock;
+use Tictock\Tictock;
 
 $cmd = 'the command you want to run';
-$tictock = new TicTock($cmd);
+$tictock = new Tictock($cmd);
 ```
 
 Schedule your command:
@@ -75,13 +76,13 @@ $tictock->save($schedule);
 
 ### Output
 
-The result of request is returned by ```TicTock::save()```. If you need the actual output returned, you need explicitly declare the scheduler. This can be done using the built-in ```ScheduleFactory``` or by explicitly initializing the Scheduler you want.
+The result of request is returned by ```Tictock::save()```. If you need the actual output returned, you need explicitly declare the scheduler. This can be done using the built-in ```ScheduleFactory``` or by explicitly initializing the Scheduler you want.
 
 ```php
-use tictock\TicTock;
+use Tictock\Tictock;
 
 $cmd = 'the command you want to run';
-$tictock = new TicTock($cmd);
+$tictock = new Tictock($cmd);
 
 $scheduler = $tictock->scheduler();
 $schedule = $tictock->schedule()
@@ -90,29 +91,29 @@ $result = $tictock->save($schedule, $scheduler);
 print_r($scheduler->output());
 ```
 
-### Extending TicTock
+### Extending Tictock
 
-TicTock is totally modular. Use your own Schedule or Scheduler to do crazy stuff, like create a recurring todo on some remote web service or program your sprinkler system.
+Tictock is totally modular. Use your own Schedule or Scheduler to do crazy stuff, like create a recurring todo on some remote web service or program your sprinkler system.
 
 ```php
-class MySchedule implements \tictock\Schedule\ScheduleInterface
+class MySchedule implements \Tictock\Schedule\ScheduleInterface
 {
     // ...
 }
 ```
 
 ```php
-class MyScheduler implements \tictock\Scheduler\SchedulerInterface
+class MyScheduler implements \Tictock\Scheduler\SchedulerInterface
 {
     // ...
 }
 ```
 
 ```php
-use tictock\TicTock;
+use Tictock\Tictock;
 
 $data = 'your data';
-$tictock = new TicTock($data);
+$tictock = new Tictock($data);
 
 $schedule = new MySchedule();
 $scheduler = new MyScheduler();

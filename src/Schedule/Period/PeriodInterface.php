@@ -1,5 +1,5 @@
 <?php
-namespace tictock\Schedule\Period;
+namespace Tictock\Schedule\Period;
 
 interface PeriodInterface
 {

@@ -1,12 +1,12 @@
 <?php
-namespace tictock\Schedule\Period;
+namespace Tictock\Schedule\Period;
 
-use tictock\Schedule\Period\PeriodInterface;
-use tictock\Schedule\Period\Minute;
-use tictock\Schedule\Period\Hour;
-use tictock\Schedule\Period\Month;
-use tictock\Schedule\Period\DayOfWeek;
-use tictock\Schedule\Period\DayOfMonth;
+use Tictock\Schedule\Period\PeriodInterface;
+use Tictock\Schedule\Period\Minute;
+use Tictock\Schedule\Period\Hour;
+use Tictock\Schedule\Period\Month;
+use Tictock\Schedule\Period\DayOfWeek;
+use Tictock\Schedule\Period\DayOfMonth;
 
 class PeriodFactory implements PeriodFactoryInterface
 {

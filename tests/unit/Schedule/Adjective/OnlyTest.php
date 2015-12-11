@@ -1,11 +1,11 @@
 <?php
-namespace tictock\Tests\Unit\Schedule\Adjective;
+namespace Tictock\Tests\Unit\Schedule\Adjective;
 
-use tictock\Schedule\Adjective\Only;
+use Tictock\Schedule\Adjective\Only;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \tictock\Schedule\Adjective\Only
+ * @coversDefaultClass \Tictock\Schedule\Adjective\Only
  */
 class OnlyTest extends PHPUnit_Framework_TestCase
 {
@@ -86,19 +86,19 @@ class OnlyTest extends PHPUnit_Framework_TestCase
 
     protected function mockSchedule()
     {
-        return $this->getMockBuilder('\tictock\Schedule\ScheduleInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\ScheduleInterface')
             ->getMock();
     }
 
     protected function mockPeriodFactory()
     {
-        return $this->getMockBuilder('\tictock\Schedule\Period\PeriodFactoryInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\Period\PeriodFactoryInterface')
             ->getMock();
     }
 
     protected function mockPeriod()
     {
-        return $this->getMockBuilder('\tictock\Schedule\Period\PeriodInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\Period\PeriodInterface')
             ->getMock();
     }
 

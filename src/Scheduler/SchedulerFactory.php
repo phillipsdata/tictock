@@ -1,9 +1,9 @@
 <?php
-namespace tictock\Scheduler;
+namespace Tictock\Scheduler;
 
-use tictock\Scheduler\Platform\Windows;
-use tictock\Scheduler\Platform\Nix;
-use \InvalidArgumentException;
+use Tictock\Scheduler\Platform\Windows;
+use Tictock\Scheduler\Platform\Nix;
+use InvalidArgumentException;
 
 /**
  * A factor for creating a Scheduler
@@ -11,7 +11,7 @@ use \InvalidArgumentException;
 class SchedulerFactory
 {
     /**
-     * Create an instance of tictock\Scheduler\SchedulerInterface
+     * Create an instance of Tictock\Scheduler\SchedulerInterface
      * @param string $platform The platform, null to auto-detect
      * @return Windows|Nix
      * @throws InvalidArgumentException When the platform is not recognized

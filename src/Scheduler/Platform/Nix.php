@@ -1,8 +1,8 @@
 <?php
-namespace tictock\Scheduler\Platform;
+namespace Tictock\Scheduler\Platform;
 
-use tictock\Scheduler\SchedulerInterface;
-use tictock\Schedule\ScheduleInterface;
+use Tictock\Scheduler\SchedulerInterface;
+use Tictock\Schedule\ScheduleInterface;
 
 /**
  * *nix Task scheduler
