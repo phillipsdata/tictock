@@ -12,8 +12,9 @@ class SchedulerFactory
 {
     /**
      * Create an instance of Tictock\Scheduler\SchedulerInterface
+     *
      * @param string $platform The platform, null to auto-detect
-     * @return Windows|Nix
+     * @return \Tictock\Scheduler\SchedulerInterface
      * @throws InvalidArgumentException When the platform is not recognized
      */
     public function create($platform = null)

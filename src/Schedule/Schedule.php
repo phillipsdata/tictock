@@ -7,6 +7,9 @@ use Tictock\Schedule\Period\PeriodFactory;
 use Tictock\Schedule\Adjective\Every;
 use Tictock\Schedule\Adjective\Only;
 
+/**
+ * Schedule manager
+ */
 class Schedule implements ScheduleInterface
 {
     private $periods = array();
