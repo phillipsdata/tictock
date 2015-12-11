@@ -1,15 +1,15 @@
 <?php
-namespace tictock;
+namespace Tictock;
 
-use tictock\Schedule\Schedule;
-use tictock\Schedule\ScheduleInterface;
-use tictock\Scheduler\SchedulerInterface;
-use tictock\Scheduler\SchedulerFactory;
+use Tictock\Schedule\Schedule;
+use Tictock\Schedule\ScheduleInterface;
+use Tictock\Scheduler\SchedulerInterface;
+use Tictock\Scheduler\SchedulerFactory;
 
 /**
  * An OS independent task scheduler.
  */
-class TicTock
+class Tictock
 {
     /**
      * @var string The command
@@ -30,7 +30,7 @@ class TicTock
      * Initializes the build-in schedule
      *
      * @return Schedule
-     * @see tictock\Schedule\ScheduleInterface
+     * @see Tictock\Schedule\ScheduleInterface
      */
     public function schedule()
     {

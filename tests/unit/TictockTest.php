@@ -1,18 +1,18 @@
 <?php
-namespace tictock\Tests;
+namespace Tictock\Tests;
 
-use tictock\TicTock;
+use Tictock\Tictock;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \tictock\TicTock
+ * @coversDefaultClass \Tictock\Tictock
  */
-class TicTockTest extends PHPUnit_Framework_TestCase
+class TictockTest extends PHPUnit_Framework_TestCase
 {
     
-    private function getTicTock()
+    private function getTictock()
     {
-        return new TicTock('echo hello world');
+        return new Tictock('echo hello world');
     }
     
     /**
@@ -20,53 +20,53 @@ class TicTockTest extends PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $this->assertInstanceOf('\tictock\TicTock', $this->getTicTock());
+        $this->assertInstanceOf('\Tictock\Tictock', $this->getTictock());
     }
 
     /**
      * @covers ::schedule
-     * @uses \tictock\TicTock::__construct
-     * @uses \tictock\Schedule\Schedule
+     * @uses \Tictock\Tictock::__construct
+     * @uses \Tictock\Schedule\Schedule
      */
     public function testSchedule()
     {
         $this->assertInstanceOf(
-            '\tictock\Schedule\ScheduleInterface',
-            $this->getTicTock()->schedule()
+            '\Tictock\Schedule\ScheduleInterface',
+            $this->getTictock()->schedule()
         );
     }
     
     /**
      * @covers ::scheduler
-     * @uses \tictock\TicTock::__construct
-     * @uses \tictock\Scheduler\SchedulerFactory
-     * @uses \tictock\Scheduler\Platform\Windows
-     * @uses \tictock\Scheduler\Platform\Nix
+     * @uses \Tictock\Tictock::__construct
+     * @uses \Tictock\Scheduler\SchedulerFactory
+     * @uses \Tictock\Scheduler\Platform\Windows
+     * @uses \Tictock\Scheduler\Platform\Nix
      */
     public function testScheduler()
     {
         $this->assertInstanceOf(
-            '\tictock\Scheduler\Platform\Windows',
-            $this->getTicTock()->scheduler('windows')
+            '\Tictock\Scheduler\Platform\Windows',
+            $this->getTictock()->scheduler('windows')
         );
         $this->assertInstanceOf(
-            '\tictock\Scheduler\Platform\Nix',
-            $this->getTicTock()->scheduler('nix')
+            '\Tictock\Scheduler\Platform\Nix',
+            $this->getTictock()->scheduler('nix')
         );
         $this->assertInstanceOf(
-            '\tictock\Scheduler\SchedulerInterface',
-            $this->getTicTock()->scheduler()
+            '\Tictock\Scheduler\SchedulerInterface',
+            $this->getTictock()->scheduler()
         );
     }
     
     /**
      * @covers ::save
-     * @uses \tictock\TicTock::__construct
+     * @uses \Tictock\Tictock::__construct
      */
     public function testSave()
     {
-        $schedule = $this->getMock('\tictock\Schedule\ScheduleInterface');
-        $scheduler = $this->getMock('\tictock\Scheduler\SchedulerInterface');
+        $schedule = $this->getMock('\Tictock\Schedule\ScheduleInterface');
+        $scheduler = $this->getMock('\Tictock\Scheduler\SchedulerInterface');
         $scheduler->expects($this->once())
             ->method('save')
             ->with(
@@ -74,7 +74,7 @@ class TicTockTest extends PHPUnit_Framework_TestCase
                 $this->anything()
             );
         
-        $this->getTicTock()->save($schedule, $scheduler);
+        $this->getTictock()->save($schedule, $scheduler);
     }
     
     /**
@@ -82,8 +82,8 @@ class TicTockTest extends PHPUnit_Framework_TestCase
      */
     public function testSaveWithoutScheduler()
     {
-        $schedule = $this->getMock('\tictock\Schedule\ScheduleInterface');
-        $scheduler = $this->getMock('\tictock\Scheduler\SchedulerInterface');
+        $schedule = $this->getMock('\Tictock\Schedule\ScheduleInterface');
+        $scheduler = $this->getMock('\Tictock\Scheduler\SchedulerInterface');
         $scheduler->expects($this->once())
             ->method('save')
             ->with(
@@ -91,7 +91,7 @@ class TicTockTest extends PHPUnit_Framework_TestCase
                 $this->anything()
             );
         
-        $tictock = $this->getMockBuilder('\tictock\TicTock')
+        $tictock = $this->getMockBuilder('\Tictock\Tictock')
             ->disableOriginalConstructor()
             ->setMethods(array('scheduler'))
             ->getMock();
