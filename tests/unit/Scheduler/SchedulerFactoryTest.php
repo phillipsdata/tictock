@@ -1,11 +1,11 @@
 <?php
-namespace tictock\Tests\Scheduler;
+namespace Tictock\Tests\Scheduler;
 
-use tictock\Scheduler\SchedulerFactory;
+use Tictock\Scheduler\SchedulerFactory;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \tictock\Scheduler\SchedulerFactory
+ * @coversDefaultClass \Tictock\Scheduler\SchedulerFactory
  */
 class SchedulerFactoryTest extends PHPUnit_Framework_TestCase
 {
@@ -19,8 +19,8 @@ class SchedulerFactoryTest extends PHPUnit_Framework_TestCase
     /**
      * @covers ::create
      * @covers ::getPlatform
-     * @uses \tictock\Scheduler\Platform\Windows
-     * @uses \tictock\Scheduler\Platform\Nix
+     * @uses \Tictock\Scheduler\Platform\Windows
+     * @uses \Tictock\Scheduler\Platform\Nix
      * @dataProvider createProvider
      */
     public function testCreate($paltform, $instanceOf)
@@ -37,11 +37,11 @@ class SchedulerFactoryTest extends PHPUnit_Framework_TestCase
     public function createProvider()
     {
         return array(
-            array('windows', '\tictock\Scheduler\Platform\Windows'),
-            array('nix', '\tictock\Scheduler\Platform\Nix'),
-            array('linux', '\tictock\Scheduler\Platform\Nix'),
-            array('unix', '\tictock\Scheduler\Platform\Nix'),
-            array(null, '\tictock\Scheduler\SchedulerInterface')
+            array('windows', '\Tictock\Scheduler\Platform\Windows'),
+            array('nix', '\Tictock\Scheduler\Platform\Nix'),
+            array('linux', '\Tictock\Scheduler\Platform\Nix'),
+            array('unix', '\Tictock\Scheduler\Platform\Nix'),
+            array(null, '\Tictock\Scheduler\SchedulerInterface')
         );
     }
     

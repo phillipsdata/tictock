@@ -1,11 +1,11 @@
 <?php
-namespace tictock\Tests\Unit\Schedule\Adjective;
+namespace Tictock\Tests\Unit\Schedule\Adjective;
 
-use tictock\Schedule\Adjective\Every;
+use Tictock\Schedule\Adjective\Every;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \tictock\Schedule\Adjective\Every
+ * @coversDefaultClass \Tictock\Schedule\Adjective\Every
  */
 class EveryTest extends PHPUnit_Framework_TestCase
 {
@@ -18,7 +18,7 @@ class EveryTest extends PHPUnit_Framework_TestCase
         $adj = $this->initializeWithMocks('createMinute');
         $adj->minute();
     }
-    
+
     /**
      * @covers ::__construct
      * @covers ::minutes
@@ -32,7 +32,7 @@ class EveryTest extends PHPUnit_Framework_TestCase
         );
         $adj->minutes($interval);
     }
-    
+
     /**
      * @covers ::__construct
      * @covers ::hour
@@ -42,7 +42,7 @@ class EveryTest extends PHPUnit_Framework_TestCase
         $adj = $this->initializeWithMocks('createHour');
         $adj->hour();
     }
-    
+
     /**
      * @covers ::__construct
      * @covers ::hours
@@ -131,19 +131,19 @@ class EveryTest extends PHPUnit_Framework_TestCase
 
     protected function mockSchedule()
     {
-        return $this->getMockBuilder('\tictock\Schedule\ScheduleInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\ScheduleInterface')
             ->getMock();
     }
 
     protected function mockPeriodFactory()
     {
-        return $this->getMockBuilder('\tictock\Schedule\Period\PeriodFactoryInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\Period\PeriodFactoryInterface')
             ->getMock();
     }
 
     protected function mockPeriod()
     {
-        return $this->getMockBuilder('\tictock\Schedule\Period\PeriodInterface')
+        return $this->getMockBuilder('\Tictock\Schedule\Period\PeriodInterface')
             ->getMock();
     }
 

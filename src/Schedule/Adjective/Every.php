@@ -1,8 +1,8 @@
 <?php
-namespace tictock\Schedule\Adjective;
+namespace Tictock\Schedule\Adjective;
 
-use tictock\Schedule\ScheduleInterface;
-use tictock\Schedule\Period\PeriodFactoryInterface;
+use Tictock\Schedule\ScheduleInterface;
+use Tictock\Schedule\Period\PeriodFactoryInterface;
 
 class Every
 {

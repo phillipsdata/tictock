@@ -1,9 +1,9 @@
 <?php
-namespace tictock\Scheduler\Platform;
+namespace Tictock\Scheduler\Platform;
 
-use tictock\Scheduler\SchedulerInterface;
-use tictock\Schedule\ScheduleInterface;
-use tictock\Schedule\Period\PeriodInterface;
+use Tictock\Scheduler\SchedulerInterface;
+use Tictock\Schedule\ScheduleInterface;
+use Tictock\Schedule\Period\PeriodInterface;
 
 /**
  * Windows task scheduler
@@ -292,8 +292,8 @@ class Windows implements SchedulerInterface
     /**
      * Return the start time suitable for the '/st' flag
      *
-     * @param array $hours Array of \tictock\Schedule\Period\PeriodInterface
-     * @param array $minutes Array of \tictock\Schedule\Period\PeriodInterface
+     * @param array $hours Array of \Tictock\Schedule\Period\PeriodInterface
+     * @param array $minutes Array of \Tictock\Schedule\Period\PeriodInterface
      * @param string The HH:MM format to execute, null if not set
      */
     private function getTime(array $hours, array $minutes)
@@ -324,7 +324,7 @@ class Windows implements SchedulerInterface
     /**
      * Return the interval suitable for the '/mo' flag
      *
-     * @param array $periods Array of \tictock\Schedule\Period\PeriodInterface
+     * @param array $periods Array of \Tictock\Schedule\Period\PeriodInterface
      * @return int The interval
      */
     private function getInterval(array $periods)
@@ -340,8 +340,8 @@ class Windows implements SchedulerInterface
     /**
      * Formats periods by type
      *
-     * @param array $periods Array of \tictock\Schedule\Period\PeriodInterface
-     * @return array An array of \tictock\Schedule\Period\PeriodInterface formatted by type
+     * @param array $periods Array of \Tictock\Schedule\Period\PeriodInterface
+     * @return array An array of \Tictock\Schedule\Period\PeriodInterface formatted by type
      */
     private function formatPeriods(array $periods)
     {

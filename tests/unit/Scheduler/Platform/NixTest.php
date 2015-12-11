@@ -1,13 +1,13 @@
 <?php
-namespace tictock\Tests\Scheduler\Platform {
+namespace Tictock\Tests\Scheduler\Platform {
 
-    use tictock\Scheduler\Platform\Nix;
-    use tictock\Scheduler\SchedulerInterface;
-    use tictock\Schedule\ScheduleInterface;
+    use Tictock\Scheduler\Platform\Nix;
+    use Tictock\Scheduler\SchedulerInterface;
+    use Tictock\Schedule\ScheduleInterface;
     use PHPUnit_Framework_TestCase;
     
     /**
-     * @coversDefaultClass \tictock\Scheduler\Platform\Nix
+     * @coversDefaultClass \Tictock\Scheduler\Platform\Nix
      */
     class NixTest extends PHPUnit_Framework_TestCase
     {
@@ -25,7 +25,7 @@ namespace tictock\Tests\Scheduler\Platform {
             $period = '*/5 * * * *';
             $nix = new Nix();
             
-            $schedule = $this->getMockBuilder('\tictock\Schedule\ScheduleInterface')
+            $schedule = $this->getMockBuilder('\Tictock\Schedule\ScheduleInterface')
                 ->getMock();
             $schedule->expects($this->once())
                 ->method('getShorthand')
@@ -55,10 +55,10 @@ namespace tictock\Tests\Scheduler\Platform {
     }
 }
 
-namespace tictock\Scheduler\Platform {
+namespace Tictock\Scheduler\Platform {
     
     function exec($cmd, array &$out, &$return)
     {
-        \tictock\Tests\Scheduler\Platform\NixTest::mockExec($cmd, $out, $return);
+        \Tictock\Tests\Scheduler\Platform\NixTest::mockExec($cmd, $out, $return);
     }
 }

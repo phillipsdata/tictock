@@ -1,7 +1,7 @@
 <?php
-namespace tictock\Schedule\Period;
+namespace Tictock\Schedule\Period;
 
-use tictock\Schedule\Period\AbstractPeriod;
+use Tictock\Schedule\Period\AbstractPeriod;
 
 /**
  * Day of a month Period

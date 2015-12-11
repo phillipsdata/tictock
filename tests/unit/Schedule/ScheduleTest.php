@@ -1,11 +1,11 @@
 <?php
-namespace tictock\Tests\Schedule;
+namespace Tictock\Tests\Schedule;
 
-use tictock\Schedule\Schedule;
+use Tictock\Schedule\Schedule;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \tictock\Schedule\Schedule
+ * @coversDefaultClass \Tictock\Schedule\Schedule
  */
 class ScheduleTest extends PHPUnit_Framework_TestCase
 {
@@ -21,29 +21,29 @@ class ScheduleTest extends PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $factory = $this->getMockBuilder('\tictock\Schedule\Period\PeriodFactoryInterface')
+        $factory = $this->getMockBuilder('\Tictock\Schedule\Period\PeriodFactoryInterface')
             ->getMock();
-        $this->assertInstanceOf('\tictock\Schedule\Schedule', new Schedule($factory));
+        $this->assertInstanceOf('\Tictock\Schedule\Schedule', new Schedule($factory));
     }
 
     /**
      * @covers ::every
      * @covers ::__construct
-     * @uses \tictock\Schedule\Adjective\Every::__construct
+     * @uses \Tictock\Schedule\Adjective\Every::__construct
      */
     public function testEvery()
     {
-        $this->assertInstanceOf('\tictock\Schedule\Adjective\Every', $this->schedule->every());
+        $this->assertInstanceOf('\Tictock\Schedule\Adjective\Every', $this->schedule->every());
     }
     
     /**
      * @covers ::only
      * @covers ::__construct
-     * @uses \tictock\Schedule\Adjective\Only::__construct
+     * @uses \Tictock\Schedule\Adjective\Only::__construct
      */
     public function testOnly()
     {
-        $this->assertInstanceOf('\tictock\Schedule\Adjective\Only', $this->schedule->only());
+        $this->assertInstanceOf('\Tictock\Schedule\Adjective\Only', $this->schedule->only());
     }
     
     /**
@@ -53,7 +53,7 @@ class ScheduleTest extends PHPUnit_Framework_TestCase
      */
     public function testSet()
     {
-        $period = $this->getMockBuilder('\tictock\Schedule\Period\PeriodInterface')
+        $period = $this->getMockBuilder('\Tictock\Schedule\Period\PeriodInterface')
             ->getMock();
         
         $this->assertEmpty($this->schedule->getPeriods());
@@ -94,7 +94,7 @@ class ScheduleTest extends PHPUnit_Framework_TestCase
     
     private function periodMock($val, $type, $period)
     {
-        $periodMock = $this->getMockBuilder('\tictock\Schedule\Period\PeriodInterface')
+        $periodMock = $this->getMockBuilder('\Tictock\Schedule\Period\PeriodInterface')
             ->getMock();
         $periodMock->expects($this->any())
             ->method('get')
