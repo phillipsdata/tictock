@@ -3,6 +3,9 @@ namespace Tictock\Schedule;
 
 use Tictock\Schedule\Period\PeriodInterface;
 
+/**
+ * Schedule manager interface
+ */
 interface ScheduleInterface
 {
     /**
@@ -19,20 +22,21 @@ interface ScheduleInterface
      * Explicitly set a period
      *
      * @param \Tictock\Schedule\Period\PeriodInterface $period
+     * @return $this
      */
     public function set(PeriodInterface $period);
 
     /**
      * Fetch periods
      *
-     * return array An array of \Tictock\Schedule\Period\PeriodInterface
+     * @return array An array of \Tictock\Schedule\Period\PeriodInterface
      */
     public function getPeriods();
 
     /**
      * Fetch periods
      *
-     * return string The shorthand for schedule: min hour day-of-month month day-of-week
+     * @return string The shorthand for schedule: min hour day-of-month month day-of-week
      */
     public function getShorthand();
 }

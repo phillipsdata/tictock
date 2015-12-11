@@ -3,6 +3,9 @@ namespace Tictock\Scheduler;
 
 use Tictock\Schedule\ScheduleInterface;
 
+/**
+ * Scheduler Interface
+ */
 interface SchedulerInterface
 {
     /**

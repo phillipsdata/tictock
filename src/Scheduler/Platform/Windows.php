@@ -16,6 +16,7 @@ class Windows implements SchedulerInterface
 
     /**
      * Initialize
+     *
      * @param string $name The name of the scheduled task
      */
     public function __construct($name = null)
