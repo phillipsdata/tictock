@@ -32,4 +32,22 @@ class Nix implements SchedulerInterface
     {
         return $this->output;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function scheduled($search = null)
+    {
+        $tasks = array();
+        $output = array();
+        exec(self::CRON . ' -l', $output);
+
+        foreach ($output as $line) {
+            if (null === $search || preg_match($search, $line)) {
+                $parts = explode(' ', $line, 6);
+                $tasks[] = $parts[5];
+            }
+        }
+        return $tasks;
+    }
 }

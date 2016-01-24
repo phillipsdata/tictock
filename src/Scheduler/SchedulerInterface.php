@@ -23,4 +23,12 @@ interface SchedulerInterface
      * @return array
      */
     public function output();
+
+    /**
+     * Returns all scheduled tasks that match the given regular expression
+     *
+     * @param string $search The regular expression search string
+     * @param array An array of scheduled tasks
+     */
+    public function scheduled($search = null);
 }
