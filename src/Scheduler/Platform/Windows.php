@@ -55,6 +55,14 @@ class Windows implements SchedulerInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function scheduled($search = null)
+    {
+        return array();
+    }
+
+    /**
      * Builds the schedule command
      *
      * @param ScheduleInterface $schedule
